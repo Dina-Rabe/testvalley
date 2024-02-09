@@ -203,3 +203,64 @@ imgMenuIcon {
   justify-content: center;
   margin-top: 10px;
 }
+
+.productCategory {
+  display: flex;
+  overflow: hidden; /* Added to hide the horizontal scrollbar */
+  width: 960px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.productGroup {
+  width: 200px;
+  font-size: x-small;
+  font-weight: bold;
+  text-align: left;
+}
+
+.productPublication {
+  display: flex;
+  flex-wrap: nowrap;
+  /* overflow-x: auto; */ /* Removed to disable the horizontal scrollbar */
+  width: 860px;
+  overflow: hidden; /* Added to enable automatic horizontal scrolling */
+  
+}
+
+.productItem {
+  flex: 0 0 auto;
+  width: 150px;
+  margin: 20px;
+}
+
+.productItem:last-child {
+  margin-right: 0;
+}
+
+.imgMedia {
+  width: 120px;
+  height: auto;
+}
+
+.imgPreface {
+  width: 20px;
+  height: auto;
+}
+
+.productItem {
+  font-size: x-small;
+}
+
+.productItem h6 {
+  font-weight: bold;
+}
+
+.Api3Content{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

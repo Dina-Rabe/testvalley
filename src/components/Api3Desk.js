@@ -11,10 +11,12 @@ function fetchPublicationList(param){
             'productName':param[i].publication.productName,
             'brandName': param[i].publication.brandName,
             'media': param[i].publication.media[0],
-            'priceInfo': param[i].priceInfo,
+            'priceInfo': param[i].publication.priceInfo,
             'discounts': param[i].publication.discounts[0],
+            'preface': param[i].publication.preface
 
         };
+        
         response.push(tempResponse);
     }
     return response;
@@ -24,7 +26,7 @@ function createProduct(param){
     
     let productTitle = (
             <div className='productGroup'>
-                <h2>{param.title}</h2>
+                <h4>{param.title}</h4>
                 <p>{param.subtitle}</p>
             </div>
     );
@@ -33,12 +35,14 @@ function createProduct(param){
     let publication = (
         <div className='productPublication'>
         {publicationList.map((data,index)=> (
-            <div key={data.id}>
-                <img src={data.media.uri}/>
-                <img src={data.prefaceIconUrl}/>
+            <div key={data.id} className='productItem'>
+                <img src={data.media.uri} className='imgMedia' />
+                <p>{data.title}</p>
+                <p>{data.brandName}</p>
+                <h6>{data.priceInfo.discountRate}% {data.priceInfo.discountPrice}</h6>
+                <img src={data.prefaceIconUrl} className='imgPreface'/>
+                <p>{data.preface}</p>
             </div>
-    
-            
         ))}
         </div>
     );
@@ -79,13 +83,14 @@ export default function Api3Desk(){
     },[productList]);
     
     
-    console.log(productComponentList);
     return (
-        <div>
+        <div id="Api3Desk" className='Api3Content'>
         {productComponentList && productComponentList.map((data,index) => (
-            <div key={index}>
+            <div key={index} className='productCategory'>
                 {data['productTitle']}
-                {data['publication']}
+                <div className='contentToSlide'>
+                    {data['publication']}
+                </div>
             </div>
         ))}
         </div>
